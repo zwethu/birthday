@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish - Page 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Bangers', cursive;
+            background-color: #FFC0CB; /* Light pink background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+        .cat-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .cat-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px; /* Adjust cat image size */
+            height: auto;
+            z-index: 1;
+        }
+        .floating-text {
+            font-size: 1.5rem;
+            color: #fff;
+            position: absolute;
+            top: var(--random-y);
+            left: var(--random-x);
+            opacity: 0; /* Start with opacity 0 */
+            animation: floatText 4s ease-in-out forwards; /* Animation forwards to keep final state */
+            z-index: 2; /* Ensure text is above the image */
+        }
+        @keyframes floatText {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 0);
+            }
+            10%, 90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1; /* Keep opacity at 1 */
+                transform: translate(-50%, -20px);
+            }
+        }
+        .continue-text {
+            font-size: 1.5rem;
+            color: #fff;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0; /* Start with opacity 0 */
+            cursor: pointer; /* Make it look clickable */
+            animation: fadeIn 2s forwards; /* Animation forwards to keep final state */
+            z-index: 2; /* Ensure text is above the image */
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cat-container">
+        <img src="assets/moshi.jpg" alt="Cat Image" class="cat-img">
+        <p class="floating-text" style="--random-x: 20%; --random-y: 20%; animation-delay: 0s;">Moshi</p>
+        <p class="floating-text" style="--random-x: 60%; --random-y: 30%; animation-delay: 2s;">dare desuka?</p>
+        <p id="continue-text" class="continue-text" onclick="goToNextPage()">Tap to continue</p>
+    </div>
+    <script>
+        function goToNextPage() {
+            window.location.href = 'page-4.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('continue-text').style.opacity = '1';
+            }, 6000); // Show "Tap to continue" 6 seconds after the first text starts
+        });
+    </script>
+</body>
+</html>

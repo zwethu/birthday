@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish - Page 7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Bangers', cursive;
+            background-color: #FFC0CB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .countdown {
+            font-size: 4rem;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: floatText 1s ease-in-out forwards;
+        }
+
+        @keyframes floatText {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+        }
+
+        .dog-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .dog {
+            position: absolute;
+            width: 100px;
+            height: auto;
+        }
+
+        .cake {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: auto;
+            z-index: 1;
+        }
+
+        .lyrics-container {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 2rem;
+            opacity: 0;
+        }
+
+        .continue-button {
+            display: none;
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            color: #FFC0CB;
+            border: none;
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lyrics-container" id="lyrics-container"></div>
+
+    <div class="countdown" id="countdown-3">3</div>
+    <div class="countdown" id="countdown-2" style="animation-delay: 1s;">2</div>
+    <div class="countdown" id="countdown-1" style="animation-delay: 2s;">1</div>
+
+    <div class="dog-container" id="dog-container">
+        <img src="assets/cake.png" alt="Cake Image" class="cake">
+        <img src="assets/dog1.png" alt="Dog Image 1" class="dog" style="top: 30%; left: 20%;">
+        <img src="assets/dog2.png" alt="Dog Image 2" class="dog" style="top: 30%; right: 20%;">
+        <img src="assets/dog3.png" alt="Dog Image 3" class="dog" style="bottom: 30%; left: 20%;">
+        <img src="assets/dog4.png" alt="Dog Image 4" class="dog" style="bottom: 30%; right: 20%;">
+    </div>
+
+    <button class="continue-button" id="continue-button" onclick="window.location.href='page-9.html'">Tap to Continue</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.getElementById('dog-container').style.display = 'block';
+                // Example usage with .then()
+                animateLyrics('Happy Birthday to You')
+                    .then(() => animateLyrics('Happy Birthday to You'))
+                    .then(() => animateLyrics('Happy Birthday Dear Mi Cho'))
+                    .then(() => animateLyrics('Happy Birthday to You'))
+                    .then(() => animateLyrics('Yay!!!'))
+                    .then(() => showContinueButton());
+            }, 3000); // Show the dog images after the countdown finishes
+        });
+
+        async function animateLyrics(lyric) {
+            const lyricsContainer = document.getElementById('lyrics-container');
+            lyricsContainer.textContent = lyric;
+            lyricsContainer.style.opacity = 1;
+
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    lyricsContainer.style.opacity = 0;
+                    setTimeout(resolve, 500); // Ensure a pause before resolving
+                }, 1500);
+            });
+        }
+
+        function showContinueButton() {
+            const continueButton = document.getElementById('continue-button');
+            continueButton.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
