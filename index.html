@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,8 @@
     <style>
         body {
             font-family: 'Bangers', cursive;
-            background-color: #FFC0CB; /* Light pink background */
+            background-color: #FFC0CB;
+            /* Light pink background */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,25 +22,32 @@
             position: relative;
             text-align: center;
         }
+
         .loading-text {
             font-size: 2rem;
             animation: bounce 2s infinite;
         }
+
         @keyframes bounce {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
             }
         }
+
         .arrows {
             position: absolute;
-            bottom: 20px;
+            bottom: 50px;
             display: flex;
             justify-content: center;
             width: 100%;
         }
+
         .arrow {
             cursor: pointer;
             margin: 0 20px;
@@ -46,19 +55,23 @@
             text-decoration: none;
             color: #000;
         }
+
         .arrow:hover {
-            color: #FF69B4; /* Highlight color on hover */
+            color: #FF69B4;
+            /* Highlight color on hover */
         }
     </style>
 </head>
+
 <body>
     <div class="loading-container">
         <p class="loading-text">Click the button to start...</p>
+        <div class="">
+            <a href="page-2.html" class="arrow" id="right-arrow">&#9654;</a>
+        </div>
     </div>
-    
-    <div class="arrows">
-        <a href="page-2.html" class="arrow" id="right-arrow">&#9654;</a>
-    </div>
+
+
 </body>
+
 </html>
-    
